@@ -120,7 +120,7 @@ public class CalculatorTest {
 
 
         } catch (CalculatorException e) {
-            assertEquals("Modulo by null not allowed", e.getMessage());
+            assertEquals("Mod by zero", e.getMessage());
             // e.getCause()
         }
 
