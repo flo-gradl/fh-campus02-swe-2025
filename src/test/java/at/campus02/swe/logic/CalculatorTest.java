@@ -54,8 +54,6 @@ public class CalculatorTest {
 
 
 
-
-
     //
     @Test(expected = CalculatorException.class)
     public void testPopOnEmptyStack() throws Exception {
@@ -80,6 +78,49 @@ public class CalculatorTest {
 
         } catch (CalculatorException e) {
             assertEquals("Division by zero", e.getMessage());
+            // e.getCause()
+        }
+
+    }
+
+    @Test
+    public void testSimpleModOperationPos1() throws Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(6.0);
+        calc.push(2);
+        double result = calc.perform(Operation.mod);
+
+        assertEquals(0, result, 0);
+
+    }
+
+    @Test
+    public void testSimpleModOperationPos2() throws Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(9.0);
+        calc.push(4);
+        double result = calc.perform(Operation.mod);
+
+        assertEquals(1, result, 0);
+
+    }
+
+    @Test
+    public void testSimpleModOperationNeg1() throws Exception {
+
+        Calculator calc = new CalculatorImpl();
+        try {
+            calc.push(9);
+            calc.push(0);
+            calc.perform(Operation.mod);
+
+            fail("Exception expected");
+
+
+        } catch (CalculatorException e) {
+            assertEquals("Modulo by null not allowed", e.getMessage());
             // e.getCause()
         }
 
