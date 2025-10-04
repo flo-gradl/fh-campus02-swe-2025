@@ -29,6 +29,9 @@ public class CalculatorImpl implements Calculator {
             case mul:
                 return a * b;
             case mod:
+                if (b == 0.0) {
+                    throw new CalculatorException("Mod by zero");
+                }
                 return  a % b;
         }
         return 0;
