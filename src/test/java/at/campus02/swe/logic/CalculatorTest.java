@@ -131,7 +131,6 @@ public class CalculatorTest {
             Calculator calc = new CalculatorImpl();
 
             calc.push(0.0);
-            calc.push(999.0);
             double result = calc.perform(Operation.cos);
 
             assertEquals(1.0, result, 1e-9);
@@ -142,7 +141,6 @@ public class CalculatorTest {
         Calculator calc = new CalculatorImpl();
 
         calc.push(1.0);
-        calc.push(999.0);
         double result = calc.perform(Operation.sin);
 
         assertEquals(0.841470, result, 0.01);
