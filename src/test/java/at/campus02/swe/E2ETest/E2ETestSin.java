@@ -9,7 +9,7 @@ import java.io.File;
 
 public class E2ETestSin {
     @Test
-    public void testSubDivideOperation() throws Exception {
+    public void testSubSinusOperation() throws Exception {
 
         CalculatorImpl calc = new CalculatorImpl();
         Parser par = new Parser(calc);
