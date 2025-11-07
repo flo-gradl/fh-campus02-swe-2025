@@ -33,6 +33,10 @@ public class CalculatorImpl implements Calculator {
                     throw new CalculatorException("Mod by zero");
                 }
                 return  a % b;
+            case sin:
+                return Math.sin(a);
+            case cos:
+                return Math.cos(a);
         }
         return 0;
     }
