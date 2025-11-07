@@ -37,6 +37,8 @@ public class CalculatorImpl implements Calculator {
                 return Math.sin(a);
             case cos:
                 return Math.cos(a);
+            case dotproduct:
+                return dotproduct();
         }
         return 0;
     }
@@ -56,6 +58,31 @@ public class CalculatorImpl implements Calculator {
     @Override
     public void clear() {
         stack_.clear();
+    }
+
+    private double dotproduct() throws CalculatorException {
+        int nPerVector = (int) pop();
+
+        if (nPerVector < 0) {
+            throw new CalculatorException("Number of elements per vector must be > 0");
+        }
+
+        double[] aVec = new double[nPerVector];
+        for (int i = nPerVector - 1; i >= 0; i--) {
+            aVec[i] = pop();
+        }
+
+        double[] bVec = new double[nPerVector];
+        for (int i = nPerVector - 1; i >= 0; i--) {
+            bVec[i] = pop();
+        }
+
+        double result = 0.0;
+        for (int i = 0; i < nPerVector; i++) {
+            result += aVec[i] * bVec[i];
+        }
+
+        return result;
     }
 
 }
