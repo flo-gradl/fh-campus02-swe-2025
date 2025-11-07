@@ -84,6 +84,9 @@ public class Parser {
             return Operation.mod;
         else if ("cos".equals(value))
             return Operation.mod;
+        else if ("dotproduct".equals(value)) {
+            return Operation.dotproduct;
+        }
 
 
         throw new CalculatorException("Unsupported Operation");
